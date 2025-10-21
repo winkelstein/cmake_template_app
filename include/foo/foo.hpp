@@ -3,13 +3,13 @@
 namespace foo
 {
   /**
-   * @brief Some fucking class
+   * @brief Some class
    */
   class Foo
   {
   public:
     /**
-     * @brief Some fucking function
+     * @brief Some method
      */
     void foo();
   };
