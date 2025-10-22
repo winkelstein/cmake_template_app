@@ -7,7 +7,7 @@ option(BUILD_TESTING "Build with tests" ON)
 
 if (BUILD_DOCS)
   include(cmake/Doxygen.cmake)
-  myproject_enable_doxygen("doxygen-awesome-darkmode-toggle")
+  project_enable_doxygen("doxygen-awesome-darkmode-toggle" ${CMAKE_SOURCE_DIR}/include/)
 endif()
 
 if(BUILD_TESTING)

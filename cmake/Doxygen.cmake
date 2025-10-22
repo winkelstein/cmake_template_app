@@ -1,5 +1,5 @@
 # Enable doxygen doc builds of source
-function(myproject_enable_doxygen DOXYGEN_THEME)
+function(project_enable_doxygen DOXYGEN_THEME SOURCE_DIR)
   # If not specified, use the top readme file as the first page
   if((NOT DOXYGEN_USE_MDFILE_AS_MAINPAGE) AND EXISTS "${PROJECT_SOURCE_DIR}/README.md")
     set(DOXYGEN_USE_MDFILE_AS_MAINPAGE "${PROJECT_SOURCE_DIR}/README.md")
@@ -45,6 +45,6 @@ function(myproject_enable_doxygen DOXYGEN_THEME)
 
   # add doxygen-docs target
   message(STATUS "Adding `doxygen-docs` target that builds the documentation.")
-  doxygen_add_docs(doxygen-docs ALL ${PROJECT_SOURCE_DIR}
+  doxygen_add_docs(doxygen-docs ALL ${SOURCE_DIR}
                    COMMENT "Generating documentation - entry file: ${CMAKE_CURRENT_BINARY_DIR}/html/index.html")
 endfunction()
