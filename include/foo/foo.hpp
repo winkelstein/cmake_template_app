@@ -13,4 +13,4 @@ namespace foo
      */
     void foo();
   };
-}
+} // namespace foo
