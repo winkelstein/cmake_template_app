@@ -1,4 +1,4 @@
-#include <foo/foo.hpp>
+#include <foo/Foo.hpp>
 #include <iostream>
 
 void foo::Foo::foo()

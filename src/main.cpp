@@ -1,4 +1,4 @@
-#include <foo/foo.hpp>
+#include <foo/Foo.hpp>
 
 int main()
 {
