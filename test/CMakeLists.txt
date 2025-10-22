@@ -20,5 +20,7 @@ target_link_libraries(
   GTest::gtest_main
 )
 
+target_include_directories(tests PRIVATE ${CMAKE_SOURCE_DIR}/include)
+
 include(GoogleTest)
 gtest_discover_tests(tests)
