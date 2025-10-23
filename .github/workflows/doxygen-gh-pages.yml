@@ -1,4 +1,4 @@
-name: Build, Test, and Deploy CMake Doxygen Docs
+name: Deploy Doxygen docs to Github Pages
 
 on:
   push:
@@ -27,12 +27,6 @@ jobs:
         build_type: [Release]
         c_compiler: [gcc, clang, cl]
         include:
-          - os: windows-latest
-            c_compiler: cl
-            cpp_compiler: cl
-          - os: ubuntu-latest
-            c_compiler: gcc
-            cpp_compiler: g++
           - os: ubuntu-latest
             c_compiler: clang
             cpp_compiler: clang++
@@ -63,11 +57,7 @@ jobs:
       - name: Install Doxygen (Ubuntu)
         if: matrix.os == 'ubuntu-latest'
         run: sudo apt-get update && sudo apt-get install -y doxygen graphviz
-
-      - name: Install Doxygen (Windows)
-        if: matrix.os == 'windows-latest'
-        run: choco install doxygen.install --no-progress --yes
-
+        
       # ⚙️ Configure CMake (including documentation)
       - name: Configure CMake
         run: >
