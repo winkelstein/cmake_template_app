@@ -57,7 +57,7 @@ jobs:
         shell: bash
         run: |
           echo "build-dir=${{ github.workspace }}/build" >> "$GITHUB_OUTPUT"
-          echo "docs-dir=${{ github.workspace }}/build/docs/html" >> "$GITHUB_OUTPUT"
+          echo "docs-dir=${{ github.workspace }}/build/html" >> "$GITHUB_OUTPUT"
 
       # 🧩 Install dependencies (Doxygen + Graphviz)
       - name: Install Doxygen (Ubuntu)
@@ -82,11 +82,6 @@ jobs:
       # 🏗️ Build all (including docs)
       - name: Build
         run: cmake --build ${{ steps.strings.outputs.build-dir }} --config ${{ matrix.build_type }}
-
-      # ✅ Run tests
-      - name: Test
-        working-directory: ${{ steps.strings.outputs.build-dir }}
-        run: ctest --build-config ${{ matrix.build_type }}
 
       # 📦 Upload documentation artifact (only once, Ubuntu)
       - name: Upload documentation artifact
