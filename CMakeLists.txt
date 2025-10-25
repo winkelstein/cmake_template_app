@@ -13,15 +13,16 @@ endif()
 
 if(BUILD_DOCS)
   include(cmake/Doxygen.cmake)
-  project_enable_doxygen("doxygen-awesome-darkmode-toggle" ${CMAKE_SOURCE_DIR}/include/)
+  project_enable_doxygen("doxygen-awesome-darkmode-toggle" include)
 endif()
 
 if(BUILD_TESTING)
   enable_testing()
-  add_subdirectory(${CMAKE_SOURCE_DIR}/libs/googletest)
+  add_subdirectory(libs/googletest)
   add_subdirectory(test)
 endif()
 
-add_subdirectory(${CMAKE_SOURCE_DIR}/src bin)
+add_subdirectory(src bin)
+target_include_directories(${PROJECT_NAME} PRIVATE include)
 
 # Here's dependencies
