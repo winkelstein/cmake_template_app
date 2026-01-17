@@ -4,6 +4,7 @@ project(cmake_template_app VERSION 1.0.0)
 
 option(BUILD_DOCS "Build documentation with the project" ON)
 option(BUILD_TESTING "Build with tests" ON)
+option(BUILD_TARGET "Build target executable/library" ON)
 
 if(MSVC)
   add_compile_options(/W4)
@@ -22,7 +23,9 @@ if(BUILD_TESTING)
   add_subdirectory(test)
 endif()
 
-add_subdirectory(src bin)
-target_include_directories(${PROJECT_NAME} PRIVATE include)
+if (BUILD_TARGET)
+  add_subdirectory(src ${PROJECT_NAME})
+  target_include_directories(${PROJECT_NAME} PRIVATE include)
+endif()
 
 # Here's dependencies
